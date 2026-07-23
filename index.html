@@ -38,17 +38,29 @@
         text-decoration: none;
         font-weight: bold;
         transition: color 0.3s;
+        cursor: pointer;
     }
 
-    .navbar a:hover {
+    .navbar a:hover,
+    .navbar a.active {
         color: #00bcd4;
     }
 
     /* SECTIONS */
     section {
-        padding: 80px 20px;
-        max-width: 800px;
-        margin: auto;
+        display: none;
+        min-height: calc(100vh - 60px);
+        padding: 100px 40px;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    section.active {
+        display: flex;
     }
 
     #home { background: #f4f4f4; }
@@ -56,8 +68,84 @@
     #publications { background: #f4f4f4; }
     #other { background: #ffffff; }
 
-    h1 {
+    section h1 {
         text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    section p {
+        max-width: 1000px;
+        margin: 0 auto 1rem;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+        max-width: 900px;
+        height: 700px;
+        margin: 30px auto 0;
+        border: 1px solid rgba(0,0,0,0.12);
+        border-radius: 10px;
+    }
+
+    .publication-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .publication-item {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .publication-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .publication-item img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: 14px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        flex: 0 0 45%;
+        object-fit: cover;
+    }
+
+    .publication-text {
+        flex: 1 1 45%;
+        min-width: 280px;
+    }
+
+    .publication-text h2 {
+        margin-top: 0;
+    }
+
+    .publication-text p {
+        margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 860px) {
+        .publication-item,
+        .publication-item:nth-child(even) {
+            flex-direction: column;
+        }
+
+        .publication-item img,
+        .publication-text {
+            max-width: 100%;
+        }
+    }
+
+    .home-image {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        display: block;
     }
 </style>
 </head>
@@ -75,26 +163,98 @@
 </div>
 
 <!-- SECTIONS -->
-<section id="home">
+<section id="home" class="active">
     <h1>Home</h1>
+    <img class="home-image" src="micro_fireworks_in_a_crystal_ball_2.png" alt="Home page photo">
     <p>Welcome to my website! This is the home section.</p>
     <p>More coming soon.</p>
 </section>
 
 <section id="cv">
     <h1>CV</h1>
-    <p>Coming soon.</p>
+    <p>Here is my CV as a PDF. If your browser does not display it, use the download link below.</p>
+    <a href="CV_UrsaUrsic_2pages.pdf" download>Download CV (PDF)</a>
+    <object class="pdf-viewer" data="CV_UrsaUrsic_2pages.pdf" type="application/pdf">
+        <p>Your browser does not support inline PDF viewing.
+           <a href="CV_UrsaUrsic_2pages.pdf" download>Download the CV instead</a>.</p>
+    </object>
 </section>
 
 <section id="publications">
     <h1>Publications</h1>
-    <p>Coming soon.</p>
+    <p>Below are four recent publications with a short project summary and an image on alternating sides.</p>
+
+    <div class="publication-list">
+        <div class="publication-item">
+            <img src="micro_fireworks_in_a_crystal_ball_2.png" alt="Project 1 image">
+            <div class="publication-text">
+                <h2>Project Title 1</h2>
+                <p>This publication presents a new method for analyzing complex data structures with improved accuracy and speed. The work includes experimental results and open-source code for reproducibility.</p>
+                <p><strong>Role:</strong> Lead researcher</p>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <img src="micro_fireworks_in_a_crystal_ball_2.png" alt="Project 2 image">
+            <div class="publication-text">
+                <h2>Project Title 2</h2>
+                <p>This study explores novel machine learning architectures for pattern recognition in noisy signals. It focuses on practical applications and scalability for real-world datasets.</p>
+                <p><strong>Role:</strong> Co-author</p>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <img src="micro_fireworks_in_a_crystal_ball_2.png" alt="Project 3 image">
+            <div class="publication-text">
+                <h2>Project Title 3</h2>
+                <p>In this publication, we develop an interactive framework for visualizing scientific workflows. The results help researchers better understand the data processing pipeline.</p>
+                <p><strong>Role:</strong> Project contributor</p>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <img src="micro_fireworks_in_a_crystal_ball_2.png" alt="Project 4 image">
+            <div class="publication-text">
+                <h2>Project Title 4</h2>
+                <p>This paper investigates the use of advanced statistical models to improve predictions in interdisciplinary research. A case study demonstrates benefits in both theory and practice.</p>
+                <p><strong>Role:</strong> Corresponding author</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section id="other">
     <h1>Other</h1>
     <p>Coming soon.</p>
 </section>
+
+<script>
+    const links = document.querySelectorAll('.navbar a');
+    const sections = document.querySelectorAll('section');
+
+    function showSection(id) {
+        sections.forEach(section => {
+            section.classList.toggle('active', section.id === id);
+        });
+        links.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+    }
+
+    links.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            showSection(targetId);
+            history.replaceState(null, '', '#' + targetId);
+        });
+    });
+
+    const validIds = new Set(Array.from(sections).map(section => section.id));
+    const requestedId = window.location.hash ? window.location.hash.substring(1) : 'home';
+    const initialId = validIds.has(requestedId) ? requestedId : 'home';
+    showSection(initialId);
+</script>
 
 </body>
 </html>
