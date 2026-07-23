@@ -73,11 +73,13 @@
         display: flex;
     }
 
-    #home { background: #f4f4f4; }
-    #cv { background: #ffffff; }
+    #about-me { background: #f4f4f4; }
+    #projects { background: #ffffff; }
     #publications { background: #f4f4f4; }
-    #science-communication { background: #ffffff; }
-    #other { background: #f4f4f4; }
+    #cv { background: #ffffff; }
+    #fun-science { background: #f4f4f4; }
+    #art { background: #ffffff; }
+    #contact { background: #f4f4f4; }
 
     section h1 {
         text-align: center;
@@ -173,30 +175,27 @@
 <div class="navbar">
     <span class="navbar-name">Urša Uršič, PhD</span>
     <ul>
-        <li><a href="#home">About Me</a></li>
-        <li><a href="#cv">CV</a></li>
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#publications">Publications</a></li>
-        <li><a href="#science-communication">Science Communication</a></li>
-        <li><a href="#other">More</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#fun-science">Fun Science</a></li>
+        <li><a href="#art">Art</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </div>
 
 <!-- SECTIONS -->
-<section id="home" class="active">
+<section id="about-me" class="active">
     <h1>About Me</h1>
     <img class="home-image" src="Photo_Ursa_Ursic.jpeg" alt="Home page photo">
     <p>Welcome to my website! This is the home section.</p>
     <p>More coming soon.</p>
 </section>
 
-<section id="cv">
-    <h1>CV</h1>
-    <p>Here is my CV as a PDF. If your browser does not display it, use the download link below.</p>
-    <a href="CV_UrsaUrsic_2pages.pdf" download>Download CV (PDF)</a>
-    <object class="pdf-viewer" data="CV_UrsaUrsic_2pages.pdf" type="application/pdf">
-        <p>Your browser does not support inline PDF viewing.
-           <a href="CV_UrsaUrsic_2pages.pdf" download>Download the CV instead</a>.</p>
-    </object>
+<section id="projects">
+    <h1>Projects</h1>
+    <p>Coming soon.</p>
 </section>
 
 <section id="publications">
@@ -242,13 +241,28 @@
     </div>
 </section>
 
-<section id="science-communication">
-    <h1>Science Communication</h1>
+<section id="cv">
+    <h1>CV</h1>
+    <p>Here is my CV as a PDF. If your browser does not display it, use the download link below.</p>
+    <a href="CV_UrsaUrsic_2pages.pdf" download>Download CV (PDF)</a>
+    <object class="pdf-viewer" data="CV_UrsaUrsic_2pages.pdf" type="application/pdf">
+        <p>Your browser does not support inline PDF viewing.
+           <a href="CV_UrsaUrsic_2pages.pdf" download>Download the CV instead</a>.</p>
+    </object>
+</section>
+
+<section id="fun-science">
+    <h1>Fun Science</h1>
     <p>Coming soon.</p>
 </section>
 
-<section id="other">
-    <h1>Other</h1>
+<section id="art">
+    <h1>Art</h1>
+    <p>Coming soon.</p>
+</section>
+
+<section id="contact">
+    <h1>Contact</h1>
     <p>Coming soon.</p>
 </section>
 
@@ -275,8 +289,8 @@
     });
 
     const validIds = new Set(Array.from(sections).map(section => section.id));
-    const requestedId = window.location.hash ? window.location.hash.substring(1) : 'home';
-    const initialId = validIds.has(requestedId) ? requestedId : 'home';
+    const requestedId = window.location.hash ? window.location.hash.substring(1) : 'about-me';
+    const initialId = validIds.has(requestedId) ? requestedId : 'about-me';
     showSection(initialId);
 </script>
 
