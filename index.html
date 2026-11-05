@@ -158,6 +158,154 @@
         }
     }
 
+    /* FUN SCIENCE VIDEOS */
+    .subsection-title {
+        text-align: center;
+        margin: 2rem 0 0.5rem;
+    }
+
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        max-width: 1000px;
+        margin: 1.5rem auto 0;
+    }
+
+    .video-item {
+        margin: 0;
+    }
+
+    .video-frame {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        background: #000;
+    }
+
+    .video-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .video-item figcaption {
+        text-align: center;
+        margin-top: 0.6rem;
+        font-weight: bold;
+    }
+
+    @media (max-width: 400px) {
+        .video-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .outreach-image {
+        width: 100%;
+        max-width: 600px;
+        margin: 1.5rem auto 0;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        display: block;
+    }
+
+    .event-callout {
+        max-width: 600px;
+        margin: 1rem auto 0;
+        padding: 1rem 1.5rem;
+        background: #ffffff;
+        border-left: 5px solid #00bcd4;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        text-align: center;
+    }
+
+    .event-callout p {
+        margin: 0.3rem 0 0;
+    }
+
+    .event-label {
+        display: inline-block;
+        background: #00bcd4;
+        color: #ffffff;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.15rem 0.6rem;
+        border-radius: 999px;
+    }
+
+    .event-more a {
+        color: #00bcd4;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /* PROJECTS */
+    .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 900px;
+        margin: 1.5rem auto 0;
+        padding-left: 1.5rem;
+        border-left: 3px solid #00bcd4;
+        box-sizing: border-box;
+    }
+
+    .project-card {
+        position: relative;
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 1.2rem 1.5rem;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .project-card::before {
+        content: "";
+        position: absolute;
+        left: calc(-1.5rem - 9px);
+        top: 1.5rem;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #00bcd4;
+        border: 3px solid #ffffff;
+    }
+
+    .project-card h2 {
+        margin: 0.3rem 0 0.2rem;
+        font-size: 1.25rem;
+    }
+
+    .project-card p,
+    .project-card ul {
+        margin: 0.5rem 0 0;
+    }
+
+    .project-date {
+        color: #00bcd4;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    .project-place {
+        color: #666;
+        font-style: italic;
+    }
+
+    .project-mentor {
+        font-size: 0.95rem;
+    }
+
     .home-image {
         width: 100%;
         max-width: 500px;
@@ -189,13 +337,84 @@
 <section id="about-me" class="active">
     <h1>About Me</h1>
     <img class="home-image" src="Photo_Ursa_Ursic.jpeg" alt="Home page photo">
-    <p>Hey there! I'm Urša, a postdoctoral scientist in the field of experimental biophysics. I love working with cells and subcellular structures to understand biological processes through the lens of physics.</p>
-    <p>More coming soon.</p>
+    <p>Hey there! I'm Urša, a postdoctoral scientist in the field of experimental biophysics. I love working with cells and subcellular structures to understand biological processes through the lens of physics. Throughout my life I have been excited about solving riddles and exploring the unknown. This curiosity drives my scientific endeavors, however, I strive to discover new insights that lead to meaningful contributions to the world.</p>
+
+    <h2 class="subsection-title">Upcoming Events</h2>
+    <div class="event-callout">
+        <span class="event-label">Beerology (Science Pub Crawl)</span>
+        <p>Come see my science slam on the <strong>26.11. at 19:30</strong> at <strong>Mondpalast, Dresden</strong>.</p>
+        <p class="event-more"><a href="#fun-science">More in Fun Science &rarr;</a></p>
+    </div>
+
 </section>
 
 <section id="projects">
     <h1>Projects</h1>
-    <p>Cool stuff, I promise. Coming soon.</p>
+    <p>From liquid crystals to sea cucumbers: here are the research projects I have worked on so far, newest first.</p>
+
+    <div class="project-list">
+        <article class="project-card">
+            <span class="project-date">Oct 2021 – Jun 2026</span>
+            <h2>PhD project: material properties of the cytoplasm in cell division</h2>
+            <p class="project-place">Max Planck Institute of Molecular Cell Biology and Genetics &amp; TU Dresden · Dresden, Germany</p>
+            <p>How the material properties of the cytoplasm affect cell division mechanisms in large embryonic cells.</p>
+        </article>
+
+        <article class="project-card">
+            <span class="project-date">December 2024</span>
+            <h2>Microtubules on curved surfaces</h2>
+            <p class="project-place">Postcourse research, Stanford University · Stanford, CA, USA</p>
+            <p>A continuation of my MBL Physiology course project on biomineralization of ossicles in sea cucumbers. I investigated how curved surfaces affect microtubule self-organization and growth, both in vitro and in extracted cytoplasm.</p>
+            <p class="project-mentor"><strong>Mentor:</strong> Manu Prakash</p>
+        </article>
+
+        <article class="project-card">
+            <span class="project-date">Jun – Aug 2024</span>
+            <h2>Physiology course rotations</h2>
+            <p class="project-place">Marine Biological Laboratory · Woods Hole, MA, USA</p>
+            <ul><li>Extremotolerance of <em>A. pullulans</em> (mentor: Amy Gladfelter)</li><li>Phagocytosis with surface modifications of macrophages and targets (mentor: Daniel Fletcher)</li><li>Biomineralization of ossicles in sea cucumbers (mentor: Manu Prakash)</li></ul>
+        </article>
+
+        <article class="project-card">
+            <span class="project-date">Jun – Aug 2022</span>
+            <h2>Simulating microtubule self-organization</h2>
+            <p class="project-place">Internship, Flatiron Institute, Simons Foundation · New York, NY, USA</p>
+            <p>Computational research on microtubule self-organization using aLENS, a simulation tool developed within the group.</p>
+            <p class="project-mentor"><strong>Mentor:</strong> Adam Lamson &amp; Michael Shelley</p>
+        </article>
+
+        <article class="project-card">
+            <span class="project-date">Nov 2021</span>
+            <h2>The shininess of zebrafish</h2>
+            <p class="project-place">Predoc course, Max Planck Institute of Molecular Cell Biology and Genetics · Dresden, Germany</p>
+            <p>A 4-week group research project combining experiments and computation to study guanine crystal formation in iridophores in zebrafish skin.</p>
+            <p class="project-mentor"><strong>Mentor:</strong> Rita Mateus, Eric Geertsma &amp; Carl Modes</p>
+        </article>
+
+        <article class="project-card">
+            <span class="project-date">Jun – Jul 2019</span>
+            <h2>Aggregation of innate immune system proteins</h2>
+            <p class="project-place">Internship, Protein Structure and Function Group, University of Queensland · Brisbane, Australia</p>
+            <p>Characterized the aggregation of the innate immune proteins TLR4 and MAL using fluorescence correlation spectroscopy (FCS) and cell-free protein expression, and improved and automated the analysis of the FCS data.</p>
+            <p class="project-mentor"><strong>Mentor:</strong> Boštjan Kobe</p>
+        </article>
+
+        <article class="project-card">
+            <span class="project-date">Oct 2018 – Apr 2019</span>
+            <h2>Topological defects on liquid crystal shells</h2>
+            <p class="project-place">Internship, ESMP, University of Luxembourg · Luxembourg</p>
+            <p>Laser-induced motion of topological defects on nematic liquid crystal shells. I produced the shells with microfluidics and imaged them with a custom-made double confocal microscope.</p>
+            <p class="project-mentor"><strong>Mentor:</strong> Jan Lagerwall</p>
+        </article>
+
+        <article class="project-card">
+            <span class="project-date">Feb 2017 – Sep 2018</span>
+            <h2>Drying droplets for printed electronics</h2>
+            <p class="project-place">Student project, K5 &amp; F5, Jožef Stefan Institute · Ljubljana, Slovenia</p>
+            <p>Characterized the hydrodynamics of drying droplets for inkjet printing of flexible electronic circuits, and produced metal oxide thin films to characterize their temperature-dependent dielectric constant.</p>
+            <p class="project-mentor"><strong>Mentor:</strong> Aleksander Matavž</p>
+        </article>
+    </div>
 </section>
 
 <section id="publications">
@@ -258,6 +477,45 @@
 <section id="fun-science">
     <h1>Fun Science</h1>
     <p>I have a passion for making science accessible and fun for everyone. I have participated in various outreach activities and science communication initiatives. Check them out!</p>
+
+    <h2 class="subsection-title">Beerology (Science Pub Crawl)</h2>
+    <div class="event-callout">
+        <span class="event-label">Upcoming</span>
+        <p>Come see my science slam on the <strong>26.11. at 19:30</strong> at <strong>Mondpalast, Dresden</strong>.</p>
+    </div>
+
+    <h2 class="subsection-title">FameLab</h2>
+    <p>FameLab is an international science communication competition where researchers have three minutes to explain a scientific topic to a general audience, with no slides allowed, just physical props one can carry onto the stage.</p>
+
+    <div class="video-grid">
+        <figure class="video-item">
+            <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/n3PWXNXC8Pw"
+                        title="FameLab regional competition talk"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <figcaption>FameLab regional competition (Dresden) 2026</figcaption>
+        </figure>
+
+        <figure class="video-item">
+            <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/8gcSX0erbkI"
+                        title="FameLab Germany national competition talk"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <figcaption>FameLab Germany national competition 2026</figcaption>
+        </figure>
+    </div>
+
+    <h2 class="subsection-title">Science Goes to School</h2>
+    <p>Science Goes to School is an initiative that brings researchers into nearby schools to meet and engage with students. Besides sharing the excitement of science and showing what a career in research really looks like, it is also about breaking down prejudice: most of the visiting researchers come from all over the world, so the students get to know international scientists in person. In this way, the initiative helps promote science while standing up against xenophobia and racism.</p>
+    <img class="outreach-image" src="science_goes_to_school.jpg" alt="Urša showing colourful science experiments with beakers to a class of students during Science Goes to School" loading="lazy">
 </section>
 
 <section id="art">
@@ -296,6 +554,15 @@
     const requestedId = window.location.hash ? window.location.hash.substring(1) : 'about-me';
     const initialId = validIds.has(requestedId) ? requestedId : 'about-me';
     showSection(initialId);
+
+    // Make in-page links like <a href="#fun-science"> switch sections too
+    window.addEventListener('hashchange', () => {
+        const id = window.location.hash.substring(1);
+        if (validIds.has(id)) {
+            showSection(id);
+            window.scrollTo(0, 0);
+        }
+    });
 </script>
 
 </body>
