@@ -513,11 +513,23 @@
         white-space: nowrap;
     }
     /* ART */
+    .art-figure {
+        max-width: 640px;
+        margin: 2rem auto 0;
+    }
+
+    .art-figure figcaption {
+        max-width: 480px;
+        margin: 0.8rem auto 0;
+        text-align: center;
+        font-style: italic;
+        font-size: 0.92rem;
+        color: var(--muted);
+    }
+
     .art-image {
         display: block;
         width: 100%;
-        max-width: 640px;
-        margin: 2rem auto 0;
         mix-blend-mode: multiply; /* lets the drawing's white paper melt into the page */
     }
 </style>
@@ -726,8 +738,11 @@
 
 <section id="art">
     <h1>Art</h1>
-    <p>Art and science have a lot in common. I enjoy exploring the intersection of creativity and analytical thinking. Including my own sketches into scientific visualizations and presentations is one way I try to bridge the gap between the two fields.</p>
+    <p>Art and science have a lot in common. I enjoy exploring the intersection of creativity and analytical thinking. Including my own sketches into scientific visualizations and presentations is one way I try to bridge the gap between the two fields. Even though I find AI tools to be widely useful, my art has exclusively been created by hand. I believe true art comes from the human artistic process which cannot be fulfilled by machines. </p>
+    <figure class="art-figure">
     <img class="art-image" src="artsyMe_web.jpg" alt="Drawing of Urša at the lab bench, pipetting onto a microscope slide with a pipette in each hand, painted in sage green and blue brushstrokes" loading="lazy">
+        <figcaption>This self-portrait was created after an image of me filling channels for a microtubule gliding assay at the Physiology course 2024, Woods Hole.</figcaption>
+    </figure>
 </section>
 
 <section id="contact">
